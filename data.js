@@ -7,14 +7,14 @@ const config = {
     acquireTimeout: 15000, // 连接超时时间
     connectionLimit: 100, // 最大连接数
     waitForConnections: true, // 超过最大连接时排队
-    queueLimit: 0, // 排队最大数量(0 代表不做限制)
+    queueLimit: 50, // 排队最大数量(0 代表不做限制)
 }
 module.exports = {
-    request: function(value) {
+    request: function(op, value) {
         var connection = mysql.createConnection(config)
         connection.connect();
         return new Promise((resolve, reject, pending) => {
-            connection.query('SELECT * FROM xmphone limit ?,?', value, function(error, results, fields) {
+            connection.query(op, value, function(error, results, fields) {
                 if (error) {
                     reject(error)
                 } else {

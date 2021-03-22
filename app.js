@@ -7,12 +7,6 @@ app.use(router)
     // 开放静态资源
 app.use('/public', express.static('public'));
 
-// 统一设置请求头 cors跨域
-app.all('*', (request, response, next) => {
-    response.header("Access-Control-Allow-Origin", "http://localhost:8080")
-    next()
-})
-
 
 app.listen(3000, (err) => {
     if (err) {
