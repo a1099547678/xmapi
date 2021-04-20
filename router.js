@@ -123,9 +123,63 @@ router.get('/product/wifi', (request, response, next) => {
     })
     //智能硬件 
 router.get('/product/parts', (request, response, next) => {
+        let begin = [Number(request.query.begin), Number(request.query.ending)]
+        console.log(begin)
+        let op = 'SELECT * FROM parts limit ?,?'
+        let P = data.request(op, begin)
+        P.then((resolve) => {
+                response.json({
+                    status: 1,
+                    msg: 'The request is ok',
+                    data: resolve
+                })
+            },
+            (reject) => {
+                next(reject)
+            }
+        )
+    })
+    //小米周边 
+router.get('/product/rimproduct', (request, response, next) => {
+        let begin = [Number(request.query.begin), Number(request.query.ending)]
+        console.log(begin)
+        let op = 'SELECT * FROM rimproduct limit ?,?'
+        let P = data.request(op, begin)
+        P.then((resolve) => {
+                response.json({
+                    status: 1,
+                    msg: 'The request is ok',
+                    data: resolve
+                })
+            },
+            (reject) => {
+                next(reject)
+            }
+        )
+    })
+    //音箱耳机 
+router.get('/product/headset', (request, response, next) => {
+        let begin = [Number(request.query.begin), Number(request.query.ending)]
+        console.log(begin)
+        let op = 'SELECT * FROM headset limit ?,?'
+        let P = data.request(op, begin)
+        P.then((resolve) => {
+                response.json({
+                    status: 1,
+                    msg: 'The request is ok',
+                    data: resolve
+                })
+            },
+            (reject) => {
+                next(reject)
+            }
+        )
+    })
+    //生活箱包 
+router.get('/product/livebox', (request, response, next) => {
     let begin = [Number(request.query.begin), Number(request.query.ending)]
     console.log(begin)
-    let op = 'SELECT * FROM parts limit ?,?'
+    let op = 'SELECT * FROM livebox limit ?,?'
     let P = data.request(op, begin)
     P.then((resolve) => {
             response.json({
