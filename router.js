@@ -195,9 +195,8 @@ router.get('/product/livebox', (request, response, next) => {
 })
 router.use((err, request, response, next) => {
     response.send({
-        code: err.code,
         status: 0,
-        msg: err.sqlMessage
+        msg: "request fail"
     })
 })
 
