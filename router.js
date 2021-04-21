@@ -7,7 +7,7 @@ const router = express.Router()
 // 统一设置请求头 cors跨域
 router.all('*', (request, response, next) => {
         response.set({
-            "Access-Control-Allow-Origin": "http://localhost:8080",
+            "Access-Control-Allow-Origin": "*",
             "Access-Control-Allow-Credentials": true
         })
         next()
